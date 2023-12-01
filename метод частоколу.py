@@ -9,19 +9,26 @@ entry.pack()
 entry1 = tk.Entry(fg='black', bg='grey', width=10)
 entry1.pack()
 
-script = ""  # Global variable
+
 
 def click():
-    global script  # Declare script as a global variable
-    script = ""
+    script = ""  # Global variable
+    key =int(entry1.get())
     text = entry.get()
-    text_list = list(text)
-    key = 2  # No need to convert it to int('2') again
-    step = int(entry1.get())
-    for i in range(len(text)):
-        if (i + 1) % step == 0 and text_list[i] != '0':
-            script += text_list[i]
-        text_list[i] = "0"
+    list_text = list(text)
+    length = len(list_text)
+
+    while key > 0:
+        count = 0
+        while count < len(list_text):
+            numberOfLetters = count + 1
+            if numberOfLetters % key == 0:
+                if (list_text[count] != 0):
+                    script += list_text[count]
+                list_text[count] = 0
+            count += 1
+        key -= 1
+
     print(script)
 
 button = tk.Button(
