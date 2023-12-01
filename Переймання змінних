@@ -1,0 +1,5 @@
+FP = {"age": "35", "heigh": "185", "speed": "18km/h"}
+GK = {"handwith": "180"}
+print(FP["age"])
+GK.update(FP)
+print(GK)
