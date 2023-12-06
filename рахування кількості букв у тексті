@@ -1,0 +1,11 @@
+text = input("text:")
+letter_count = {}
+for char in text:
+    if char.isalpha():
+        if char.lower() in letter_count:
+            letter_count[char.lower()] += 1
+        else:
+            letter_count[char.lower()] = 1
+
+for letter, count in sorted(letter_count.items()):
+    print(f"'{letter}' - {count}")
